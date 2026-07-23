@@ -1,37 +1,36 @@
 // Данная строка выводит консоль лог
 console.log('Hello world')
 /* Коментарии многострочные */
-const firstName = 'Albert'
-const myAge = 34
-const message = `Hello, i'm ${firstName}, мне ${myAge} лет`
+const firstName = 'Albert';
+const myAge = 34;
+const message = `Hello, i'm ${firstName}, мне ${myAge} лет`.
 
 console.log(message)
 
 // Температура в городе
-function temperatureInCity (city, temperature) {
+function showTemperatureInCity (city, temperature) {
   console.log(`Температура в городе ${city} составляет ${temperature}.`);
 }
 
-temperatureInCity('Kazan', '25°C');
+showTemperatureInCity('Kazan', '25°C');
 
 // Скорость света
-const LIGHT_SPEED = 299792458
+const LIGHT_SPEED = 299792458;
 
-console.log(LIGHT_SPEED)
-
-let speed = 30;
-
-if (speed > LIGHT_SPEED) {
-  console.log('Сверхсветовая скорость')
-} else if (speed === LIGHT_SPEED) {
-  console.log('Скорость света')
-} else {
-  console.log('Субсветовая скорость')
+function checkLightSpeed(speed) {
+  if (speed > LIGHT_SPEED)
+    console.log('Сверхсветовая скорость');
+    else if (speed === LIGHT_SPEED)
+    console.log('Скорость света');
+    else 
+    console.log('Субсветовая скорость');
 }
 
+checkLightSpeed(30)
+
 // Проверка баланса
-const balance = 100
-const productPrice = 333
+const balance = 100;
+const productPrice = 333;
 
 if (balance >= productPrice) {
   console.log('Спасибо за покупку');
@@ -39,11 +38,6 @@ if (balance >= productPrice) {
   const deficit = productPrice - balance;
   console.log(`Недостаточно средств, не хватает ${deficit}`);
 }
-
-function sum(a, b) {
-  console.log(a + b)
-}
-sum(10, 20)
 
 const sayHi = () => {
   console.log('Привет')
@@ -59,9 +53,9 @@ const sayHi2 = (name) => {
 sayHi2('Альберт')
 
 function greet(name = "Влад") {
-       console.log(`Привет, ${name}`);
-     }
+  console.log(`Привет, ${name}`);
+}
 
-     greet();
+greet();
 
 
