@@ -25,9 +25,9 @@ const car = {
   model: "XC60",
   color: "Silver",
   transmission: "Auto",
-  owner: person
 }
 
+car.owner = person;
 console.log(car.owner.name);
 
 // 5 задание проверка максимальной скорости
@@ -125,7 +125,7 @@ console.log(allBooks);
 
 // 10 массив map
 
-function addIsRareProperty(booksArray) {
+function getIsRareProperty(booksArray) {
   return booksArray.map(book => {
     return {
       ...book,
@@ -134,7 +134,7 @@ function addIsRareProperty(booksArray) {
   });
 }
 
-const booksWithRarity = addIsRareProperty(allBooks);
+const booksWithRarity = getIsRareProperty(allBooks);
 const rareOnly = booksWithRarity.filter(book => book.isRare);
 
 console.log(booksWithRarity);
