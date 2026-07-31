@@ -1,4 +1,5 @@
 // 1 уровень  2 массив чисел от 1 до 10 с 
+import { comments } from './comments.js';
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -15,7 +16,7 @@ const reversedNumbers = reverseArray(numbers);
 const reversedProducts = reverseArray(products);
 
 function reverseArray(arr) {
-  return [...arr].reverse(); 
+  return arr.reverse(); 
 }
 
 console.log(numbers);
@@ -27,7 +28,7 @@ console.log(reversedProducts);
 
 // 2 уровень 7 массив комментариев из файла comments.js с адресами .com
 
-import { comments } from './comments.js';
+
 
 const commentsWithComEmail = comments.filter(comment => comment.email.includes('.com'));
 
@@ -36,8 +37,8 @@ console.log(commentsWithComEmail);
 // 8 перебор массива
 
 const updatedComments = comments.map(comment => {
-  const newPostId = comment.id <= 5 ? 2 : 1;
-    return { ...comment, postId: newPostId };
+const newPostId = comment.id <= 5 ? 2 : 1;
+  return { ...comment, postId: newPostId };
 });
 
 console.log(updatedComments);
