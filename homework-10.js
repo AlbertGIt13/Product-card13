@@ -31,8 +31,9 @@ products.forEach(product => {
 
 // Метод reduce
 const descriptionsByProductName = products.reduce((acc, item) => {
-  acc[item.productCardNameProduct] = item.productCardDescription;
+  const newObj = { [item.productCardNameProduct]: item.productCardDescription };
+  acc.push(newObj);
   return acc;
-}, {});
+}, []);
 
 console.log(descriptionsByProductName);
