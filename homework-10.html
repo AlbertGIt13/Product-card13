@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="body">
+
+  <button id="change-card-color-button">Изменить цвет карточки</button>
+  <button id="change-all-cards-color-button">Изменить цвет всех карточек</button>
+  <button id="open-google-button">Открыть Google</button>
+  <button id="output-console-log">Вывести сообщение в консоль лог</button>
+  <button id="change-this-button-color">Изменять цвет этой кнопки</button>
+
+  <h1 class="title">Выбери свой продукт</h1>
+  <img class="background-image" src="img/dandelions_background.jpg" alt="Одуванчики Dandelions"/>
+
+  <template id="product-card-template">
+    <li class="product-card">
+      <img  src="" alt="" />
+      <div class="product-card__category"></div>
+      <h2 class="product-card__name-product"></h2>
+      <p class="product-card__description"></p>
+      <span class="compound">Состав:</span>
+      <ul class="compound-text"></ul>
+      <div class="product-card__price">Цена:
+        <span class="product-card__price-value"></span>
+      </div>
+    </li>
+  </template>
+
+  <ul id="products-list" class="product-name"></ul>
+  <script src="main.js"></script>
+  <script type="module" src="homework-10.js"></script>
+</body>
+</html>
