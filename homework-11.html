@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body id="top" class="body">
+
+  <button id="registration-button" class="registration-button" type="button">Регистрация</button>
+  <button id="change-card-color-button">Изменить цвет карточки</button>
+  <button id="change-all-cards-color-button">Изменить цвет всех карточек</button>
+  <button id="open-google-button">Открыть Google</button>
+  <button id="output-console-log">Вывести сообщение в консоль лог</button>
+  <button id="change-this-button-color">Изменять цвет этой кнопки</button>
+
+  <h1 class="title">Выбери свой продукт</h1>
+  <img class="background-image" src="img/dandelions_background.jpg" alt="Одуванчики Dandelions"/>
+
+  <template id="product-card-template">
+    <li class="product-card">
+      <img  src="" alt="" />
+      <div class="product-card__category"></div>
+      <h2 class="product-card__name-product"></h2>
+      <p class="product-card__description"></p>
+      <span class="compound">Состав:</span>
+      <ul class="compound-text"></ul>
+      <div class="product-card__price">Цена:
+        <span class="product-card__price-value"></span>
+      </div>
+    </li>
+  </template>
+
+  <ul id="products-list" class="product-name"></ul>
+
+<div class="overlay" id="registration-overlay"></div>
+
+  <div
+    class="modal"
+    id="registration-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="registration-title"
+  >
+    <div class="modal__content">
+      <button
+        class="modal__close"
+        id="modal-close-button"
+        type="button"
+        aria-label="Закрыть окно"
+      >
+        &times;
+      </button>
+
+      <h2 class="modal__title" id="registration-title">Регистрация</h2>
+
+      <form class="registration-form" id="registration-form">
+        <div class="registration-form__field">
+          <label for="first-name">Имя</label>
+          <input
+            id="first-name"
+            name="firstName"
+            type="text"
+            placeholder="Введите имя"
+            autocomplete="given-name"
+            minlength="2"
+            required
+          >
+        </div>
+
+        <div class="registration-form__field">
+          <label for="last-name">Фамилия</label>
+          <input
+            id="last-name"
+            name="lastName"
+            type="text"
+            placeholder="Введите фамилию"
+            autocomplete="family-name"
+            minlength="2"
+            required
+          >
+        </div>
+
+        <div class="registration-form__field">
+          <label for="birth-date">Дата рождения</label>
+          <input
+            id="birth-date"
+            name="birthDate"
+            type="date"
+            autocomplete="bday"
+            required
+          >
+        </div>
+
+        <div class="registration-form__field">
+          <label for="login">Логин</label>
+          <input
+            id="login"
+            name="login"
+            type="text"
+            placeholder="Придумайте логин"
+            autocomplete="username"
+            minlength="3"
+            pattern="[A-Za-zА-Яа-яЁё0-9_-]{3,}"
+            title="Используйте минимум 3 буквы, цифры, дефис или нижнее подчёркивание"
+            required
+          >
+        </div>
+
+        <div class="registration-form__field">
+          <label for="password">Пароль</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Введите пароль"
+            autocomplete="new-password"
+            minlength="6"
+            required
+          >
+        </div>
+
+        <div class="registration-form__field">
+          <label for="confirm-password">Повторите пароль</label>
+          <input
+            id="confirm-password"
+            name="confirmPassword"
+            type="password"
+            placeholder="Повторите пароль"
+            autocomplete="new-password"
+            minlength="6"
+            required
+          >
+        </div>
+
+        <p class="registration-form__message" id="registration-message" role="alert"></p>
+
+        <button class="registration-form__submit" type="submit">
+          Зарегистрироваться
+        </button>
+      </form>
+    </div>
+  </div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__left">
+      <h2 class="footer__brand">Product Cards</h2>
+      <p class="footer__tagline">У нас самые лучшие продукты для кожи!</p>
+
+      <div class="footer__socials">
+        <a href="#" aria-label="Telegram" class="footer__social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20.7 4.1 17.8 19c-.2 1.1-.8 1.4-1.7.9l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.7-7.9c.4-.3-.1-.5-.6-.2L5.7 13.1 1.1 11.7c-1-.3-1-1 .2-1.5L19.2 3c.8-.3 1.8.2 1.5 1.1Z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="VK" class="footer__social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M3.2 6.9c.1 5.9 3.1 9.4 8.4 9.4h.3v-3.4c2 .2 3.5 1.7 4.1 3.4h3.1c-.8-2.8-2.7-4.4-3.9-5.1 1.2-.8 2.8-2.7 3.4-4.3h-2.8c-.6 1.8-2.2 3.5-3.9 3.7V6.9h-2.8v6.4c-1.8-.4-3.6-2.2-3.7-6.4H3.2Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__center">
+      <p class="footer__subscribe-title">Подпишись на наши акции:</p>
+      <form class="footer__subscribe-form" action="#" method="post">
+        <label class="visually-hidden" for="footer-email">Электронная почта</label>
+        <input id="footer-email" name="email" type="email" class="footer__input" placeholder="Введи Email..." autocomplete="email" required>
+        <button type="submit" class="footer__btn">Подписаться</button>
+      </form>
+    </div>
+
+    <div class="footer__right">
+      <h3 class="footer__section-title">Быстрые ссылки</h3>
+      <nav class="footer__nav" aria-label="Быстрые ссылки">
+        <ul class="footer__list">
+          <li class="footer__item"><a href="#top" class="footer__link">Главная</a></li>
+          <li class="footer__item"><a href="#products-list" class="footer__link">Магазин</a></li>
+          <li class="footer__item"><a href="#footer-contacts" class="footer__link">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div id="footer-contacts" class="site-footer__bottom">
+    <div class="container">
+      <div class="footer__divider" aria-hidden="true"></div>
+      <p class="footer__copyright">www.product-cards.com&copy;all right reserve</p>
+    </div>
+  </div>
+</footer>
+
+  <script src="main.js"></script>
+  <script type="module" src="homework-11.js"></script>
+</body>
+</html>
