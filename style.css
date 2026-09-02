@@ -389,7 +389,7 @@ body.modal-open {
   transform: translateY(-1px);
 }
 
-.footer__social-link svg {
+.footer__social-link img {
   display: block;
   width: 16px;
   height: 16px;
