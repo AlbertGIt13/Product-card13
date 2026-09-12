@@ -1,3 +1,6 @@
+import './homework-10.js';
+import './homework-11.js';
+
 const productCard = document.querySelector(`.product-card`);
 const changeCardColorButton = document.querySelector(`#change-card-color-button`);
 const productCards = document.querySelectorAll('.product-card');

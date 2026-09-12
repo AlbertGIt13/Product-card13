@@ -1,8 +1,11 @@
-// Валидация формы
-const subscribeForm = document.querySelector('.footer__subscribe-form');
+import Modal from './Modal.js';
+import Form from './Form.js';
+
+// === Форма подписки ===
+const subscribeForm = new Form('subscribe-form');
 const emailInput = document.querySelector('.footer__input');
 
-subscribeForm.addEventListener('submit', (event) => {
+subscribeForm.form.addEventListener('submit', (event) => {
   event.preventDefault();
 
   if (!emailInput.value.trim() || !emailInput.validity.valid) {
@@ -10,19 +13,17 @@ subscribeForm.addEventListener('submit', (event) => {
     return;
   }
 
-  console.log({
-    email: emailInput.value.trim()
-  });
+  console.log(subscribeForm.getValues());
 });
 
-// Модальное окно Регистрация
+// === Модальное окно регистрации ===
 let user = null;
 
+const registrationModal = new Modal('modal');
+const registrationForm = new Form('registration-form');
+
 const registrationButton = document.querySelector('#registration-button');
-const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
-const modalCloseButton = document.querySelector('#modal-close-button');
-const registrationForm = document.querySelector('#registration-form');
 const registrationMessage = document.querySelector('#registration-message');
 const birthDateInput = document.querySelector('#birth-date');
 const passwordInput = document.querySelector('#password');
@@ -30,30 +31,23 @@ const confirmPasswordInput = document.querySelector('#confirm-password');
 
 birthDateInput.max = new Date().toISOString().split('T')[0];
 
-function openModal() {
-  modal.classList.add('modal-showed');
-  overlay.classList.add('overlay-showed');
-  document.body.classList.add('modal-open');
-}
+// Открытие / закрытие
+registrationButton.addEventListener('click', () => {
+  registrationModal.open();
+});
 
-function closeModal() {
-  modal.classList.remove('modal-showed');
-  overlay.classList.remove('overlay-showed');
-  document.body.classList.remove('modal-open');
-  registrationMessage.textContent = '';
-}
-
-registrationButton.addEventListener('click', openModal);
-modalCloseButton.addEventListener('click', closeModal);
-overlay.addEventListener('click', closeModal);
+overlay.addEventListener('click', () => {
+  registrationModal.close();
+});
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && modal.classList.contains('modal-showed')) {
-    closeModal();
+  if (event.key === 'Escape' && registrationModal.isOpen()) {
+    registrationModal.close();
   }
 });
 
-registrationForm.addEventListener('submit', (event) => {
+// Отправка формы регистрации
+registrationForm.form.addEventListener('submit', (event) => {
   event.preventDefault();
   registrationMessage.textContent = '';
 
@@ -63,20 +57,21 @@ registrationForm.addEventListener('submit', (event) => {
     confirmPasswordInput.setCustomValidity('Пароли не совпадают.');
   }
 
-  if (!registrationForm.checkValidity()) {
-    registrationForm.reportValidity();
+  // Метод II — проверка валидности
+  if (!registrationForm.isValid()) {
+    registrationForm.form.reportValidity();
     registrationMessage.textContent = 'Регистрация отклонена. Проверьте данные формы.';
     return;
   }
 
-  const formData = new FormData(registrationForm);
-
-  user = Object.fromEntries(formData.entries());
+  // Метод I — получение всех значений формы
+  user = registrationForm.getValues();
   user.createdOn = new Date();
 
   console.log(user);
 
+  // Метод III — сброс значений формы
   registrationForm.reset();
   confirmPasswordInput.setCustomValidity('');
-  closeModal();
+  registrationModal.close();
 });
