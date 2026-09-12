@@ -90,14 +90,14 @@ class Lemonade extends Drink {
 
   prepare() {
     console.log(`Добавляем сироп ${this.flavor}`);
-      if (this.ice) {
-        console.log("Добавляем лёд");
-      }
+    if (this.ice) {
+      console.log("Добавляем лёд");
+    }
     this.setTemperature(5);
   }
 }
 
-// Класс Кафе
+//  Класс Кафе
 class Cafe {
   constructor(name, location) {
     this.name = name;
@@ -121,7 +121,7 @@ const coffee = new Coffee("Капучино", "Большой", 250, 60, "Arabic
 const tea = new Tea("Зелёный чай", "Средний", 180, 60, "Сенча", true);
 const lemonade = new Lemonade("Лимонад", "Большой", 220, 20, "Лимон", true);
 
-console.log(cafe.getInfo());
+console.log(cafe.getCafeInfo());
 console.log(coffee.getInfo());
 console.log(tea.getInfo());
 console.log(lemonade.getInfo());
