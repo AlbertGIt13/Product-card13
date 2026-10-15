@@ -9,7 +9,6 @@ export class Modal {
       this.close();
     };
     this.#initOpen(buttonId);
-    this.#initClose();
   }
 
   open() {
@@ -21,6 +20,7 @@ export class Modal {
         this.overlayClickHandler
       );
     }
+    this.#initClose();
   }
 
   close() {
