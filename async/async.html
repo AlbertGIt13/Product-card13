@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Управление пользователями</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <main class="container">
+    <h1>Управление пользователями</h1>
+      <div id="message">Данные загружаются...
+      </div>
+      <div id="error" style="display: none; color: red;"></div>
+      <div class="buttons">
+        <button id="loadBtn" type="button">Получить всех пользователей
+        </button>
+        <button id="clearAllBtn" type="button">Удалить все карточки
+        </button>
+      </div>
+      <div id="usersContainer"></div>
+  </main>
+
+  <script src="./async.js"></script>
+
+</body>
+</html>
